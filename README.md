@@ -15,7 +15,9 @@
 1. Открыть проект
 1. Выполнить в терминале команду ``Docker-compose up``
 1. В отдельном окне терминала выполнить команду ``java -jar ./artifacts/app-shop.jar``
-1. Для запуска тестов выполнить команду ``gradlew clean test``
+1. Для запуска тестов выполнить команду ``gradlew clean test allureReport``
+1. Для генерации отчета о тестировании выполнить команду ``gradlew allureReport``  
+Отчет будет находиться в директории: ``./build/reports/allure-report/index.html``
 
 Для тестирования приложения с СУБД PostgreSQL необходимо в файле application.properties в строке ``spring.datasource.url=`` заменить ``jdbc:mysql://localhost:3306/app`` на ``jdbc:postgresql://localhost:5432/app``
 
@@ -23,5 +25,3 @@
 1. [План автоматизации](./documentation/Plan.md)
 1. [Отчет по тестированию](./documentation/Report.md)
 1. [Отчет по автоматизации](./documentation/Summary.md)
-
-
