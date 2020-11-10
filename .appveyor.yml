@@ -12,9 +12,10 @@ install:
   - chmod +x ./gradlew
   - sudo curl -L "https://github.com/docker/compose/releases/download/1.27.4/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
   - sudo chmod +x /usr/local/bin/docker-compose
-  - sudo docker-compose -f ./docker-compose.yml up --build -d
-  - sleep 120
-  - java -jar ./artifacts/aqa-shop.jar &
+  - sudo docker-compose -f ./docker-compose.yml up
+  - sleep 60
+  - sudo java -jar ./artifacts/aqa-shop.jar &
+  - sleep 60
   - sudo curl localhost:8080
 build_script:
   - sleep 60
