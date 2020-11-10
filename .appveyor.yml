@@ -9,12 +9,12 @@ branches:
 build: off
 
 install:
-  - chmod +x ./gradlew
+  - chmod +x gradlew
   - sudo curl -L "https://github.com/docker/compose/releases/download/1.27.4/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
   - sudo chmod +x /usr/local/bin/docker-compose
   - sudo docker-compose -f ./docker-compose.yml up
-  - sleep 60
-  - sudo java ./artifacts/aqa-shop.jar &
-  - sleep 30
+  - sleep 45
+  - sudo java -jar ./artifacts/aqa-shop.jar &
+  - sleep 20
 build_script:
   - ./gradlew test "-Dselenide.headless=true"
