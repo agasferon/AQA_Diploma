@@ -13,5 +13,5 @@ install:
   - sudo java -jar ./artifacts/aqa-shop.jar &
   - sleep 30
   - sudo curl localhost:8080
-build_script:
+script:
   - ./gradlew test -Dselenide.headless=true
