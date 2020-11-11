@@ -19,7 +19,6 @@ jobs:
           java-version: 11
       - name: Grant execute permission for gradlew
         run: chmod +x gradlew
-
       run: docker-compose -f ./docker-compose.yml up --build -d
       run: sleep 60
       run: sudo java -jar ./artifacts/aqa-shop.jar &
