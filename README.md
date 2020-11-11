@@ -21,6 +21,9 @@
 
 Для тестирования приложения с СУБД PostgreSQL необходимо в файле application.properties в строке ``spring.datasource.url=`` заменить ``jdbc:mysql://localhost:3306/app`` на ``jdbc:postgresql://localhost:5432/app``
 
+[![Build status](https://ci.appveyor.com/api/projects/status/baio8em638weqs6a/branch/master?svg=true)](https://ci.appveyor.com/project/agasferon/aqa-diploma/branch/master)
+[![Build Status](https://travis-ci.org/agasferon/AQA_Diploma.svg?branch=master)](https://travis-ci.org/agasferon/AQA_Diploma)
+
 #### Документация к проекту
 1. [План автоматизации](./documentation/Plan.md)
 1. [Отчет по тестированию](./documentation/Report.md)
