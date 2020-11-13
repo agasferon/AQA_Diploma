@@ -22,6 +22,7 @@
 Для тестирования приложения с СУБД PostgreSQL необходимо в файле application.properties в строке ``spring.datasource.url=`` заменить ``jdbc:mysql://localhost:3306/app`` на ``jdbc:postgresql://localhost:5432/app``
 
 
+
 #### Документация к проекту
 1. [План автоматизации](./documentation/Plan.md)
 1. [Отчет по тестированию](./documentation/Report.md)
@@ -30,3 +31,17 @@
 [![Build status](https://ci.appveyor.com/api/projects/status/baio8em638weqs6a/branch/master?svg=true)](https://ci.appveyor.com/project/agasferon/aqa-diploma/branch/master)
 [![Build Status](https://travis-ci.org/agasferon/AQA_Diploma.svg?branch=master)](https://travis-ci.org/agasferon/AQA_Diploma)
 ![Java CI with Gradle](https://github.com/agasferon/AQA_Diploma/workflows/Java%20CI%20with%20Gradle/badge.svg)
+
+
+
+
+java -Dspring.datasource.url=jdbc:mysql://localhost:3306/app -Dspring.datasource.username=app -Dspring.datasource.password=pass -jar ./artifacts/aqa-shop.jar
+gradlew -Ddb.url=jdbc:mysql://localhost:3306/app -Ddb.user=app -Ddb.password=pass  clean test allureReport
+
+java -Dspring.datasource.url=jdbc:postgresql://localhost:5432/app -Dspring.datasource.username=app -Dspring.datasource.password=pass -jar ./artifacts/aqa-shop.jar
+gradlew -Ddb.url=jdbc:postgresql://localhost:5432/app -Ddb.user=app -Ddb.password=pass  clean test allureReport
+
+В постгрес пишет не нулл а деклайн!
+expected: <null> but was: <DECLINED>
+Expected :null
+Actual   :DECLINED
