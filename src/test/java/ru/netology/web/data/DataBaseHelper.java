@@ -90,6 +90,7 @@ public class DataBaseHelper {
     String queryStatusInDB2; //for debug
     String queryStatusInDB3; //for debug
     String queryStatusInDB4; //for debug
+    String queryStatusInDB5; //for debug
     System.out.println(jdbcUrl);
     System.out.println(user);
     System.out.println(password);
@@ -99,12 +100,14 @@ public class DataBaseHelper {
       queryStatusInDB2 = "SELECT id FROM credit_request_entity WHERE created >= DATE_SUB(NOW() , INTERVAL 1 SECOND);"; //for debug
       queryStatusInDB3 = "SELECT NOW(), ' minus interval = ', DATE_SUB(NOW() , INTERVAL 1 SECOND);"; //for debug
       queryStatusInDB4 = "SELECT DATE_SUB(NOW() , INTERVAL 1 SECOND);"; //for debug
+      queryStatusInDB5 = "SELECT NOW() >= DATE_SUB(NOW() , INTERVAL 1 SECOND);"; //for debug
     } else {
       System.out.println("FALSE! POSTGRES!"); //for debug
       queryStatusInDB = "SELECT status FROM credit_request_entity WHERE created >= (current_timestamp - INTERVAL '1 second');";
       queryStatusInDB2 = "SELECT id FROM credit_request_entity WHERE created >= (current_timestamp - INTERVAL '1 second');"; //for debug
       queryStatusInDB3 = "SELECT (current_timestamp), ' minus interval = ', (current_timestamp - INTERVAL '1 second');"; //for debug
       queryStatusInDB4 = "SELECT (current_timestamp - INTERVAL '1 second');"; //for debug
+      queryStatusInDB5 = "SELECT NOW() >= (NOW() - INTERVAL '1 second');"; //for debug
     }
     val runner = new QueryRunner();
     try (
@@ -114,12 +117,14 @@ public class DataBaseHelper {
       val statusId = runner.query(conn, queryStatusInDB2, new ScalarHandler<>()); //for debug
       val time = runner.query(conn, queryStatusInDB3, new ScalarHandler<>()); //for debug
       val diffTime = runner.query(conn, queryStatusInDB4, new ScalarHandler<>()); //for debug
+      val diffTimeB = runner.query(conn, queryStatusInDB5, new ScalarHandler<>()); //for debug
       System.out.println(queryStatusInDB); //for debug
       System.out.println(queryStatusInDB2); //for debug
       System.out.println("status = " + status); //for debug
       System.out.println("id = " + statusId); //for debug
       System.out.println("time = " + time); //for debug
       System.out.println("time = " + diffTime); //for debug
+      System.out.println("result = " + diffTimeB); //for debug
       return (String) status;
     } catch (SQLException throwables) {
       throwables.printStackTrace();
