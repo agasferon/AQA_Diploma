@@ -1,10 +1,10 @@
 name: Java CI with Gradle
 
-on:
-  push:
-    branches: [ master ]
-  pull_request:
-    branches: [ master ]
+#on:
+#  push:
+#    branches: [ master ]
+#  pull_request:
+#    branches: [ master ]
 
 jobs:
   build:
@@ -22,10 +22,10 @@ jobs:
       - name: sleep
         run: sleep 60
       - name: java run
-        run: sudo java -jar ./artifacts/aqa-shop.jar &
+        run: sudo java -Dspring.datasource.url=jdbc:mysql://localhost:3306/app -Dspring.datasource.username=app -Dspring.datasource.password=pass -jar ./artifacts/aqa-shop.jar &
       - name: sleep
         run: sleep 30
       - name: curl
         run: sudo curl localhost:8080
       - name: gradlew test
-        run: ./gradlew test -Dselenide.headless=true
+        run: ./gradlew -Ddb.url=jdbc:mysql://localhost:3306/app -Ddb.user=app -Ddb.password=pass  clean test -Dselenide.headless=true
