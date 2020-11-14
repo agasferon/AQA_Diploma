@@ -19,7 +19,8 @@
 ``java -Dspring.datasource.url=jdbc:mysql://localhost:3306/app -Dspring.datasource.username=app -Dspring.datasource.password=pass -jar ./artifacts/aqa-shop.jar``
 - Выполнить команду для сборки:  
 ``gradlew -Ddb.url=jdbc:mysql://localhost:3306/app -Ddb.user=app -Ddb.password=pass  clean test allureReport``
-1. Для тестирования в СУДБ PostgreSQL
+
+1. Для тестирования в СУДБ PostgreSQL (Только под Unix)
 - В отдельном окне терминала выполнить команду:  
 ``java -Dspring.datasource.url=jdbc:postgresql://localhost:5432/app -Dspring.datasource.username=app -Dspring.datasource.password=pass -jar ./artifacts/aqa-shop.jar``
 - Выполнить команду для сборки:  
