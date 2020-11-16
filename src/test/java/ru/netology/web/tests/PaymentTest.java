@@ -21,7 +21,7 @@ class PaymentTest {
     @BeforeEach
     void setUpAll() {
         SelenideLogger.addListener("allure", new AllureSelenide());
-        Selenide.sleep(1000);
+        DataBaseHelper.cleanTables();
     }
 
     @AfterAll
