@@ -8,18 +8,11 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class DataBaseHelper {
-  static String jdbcUrl = System.getProperty("db.url");
+  static String jdbcUrl = System.getProperty("db.url");;
   static String user = System.getProperty("db.user");
   static String password = System.getProperty("db.password");
 
-  public static void getJdbcProperties() {
-    jdbcUrl = System.getProperty("db.url");
-    user = System.getProperty("db.user");
-    password = System.getProperty("db.password");
-  }
-
   public static String checkStatusInPayment() {
-    getJdbcProperties();
     String queryStatusInDB;
     if (jdbcUrl.equals("jdbc:mysql://localhost:3306/app")) {
       queryStatusInDB = "SELECT status FROM payment_entity WHERE created >= DATE_SUB(NOW() , INTERVAL 1 SECOND);";
@@ -39,7 +32,6 @@ public class DataBaseHelper {
   }
 
   public static String checkStatusInCredit() {
-    getJdbcProperties();
     String queryStatusInDB;
     if (jdbcUrl.equals("jdbc:mysql://localhost:3306/app")) {
       queryStatusInDB = "SELECT status FROM credit_request_entity WHERE created >= DATE_SUB(NOW() , INTERVAL 1 SECOND);";

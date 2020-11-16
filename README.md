@@ -1,5 +1,9 @@
 ### Дипломный проект профессии «Тестировщик ПО»
 
+[![Build status](https://ci.appveyor.com/api/projects/status/baio8em638weqs6a/branch/master?svg=true)](https://ci.appveyor.com/project/agasferon/aqa-diploma/branch/master)
+[![Build Status](https://travis-ci.org/agasferon/AQA_Diploma.svg?branch=master)](https://travis-ci.org/agasferon/AQA_Diploma)
+![Java CI with Gradle](https://github.com/agasferon/AQA_Diploma/workflows/Java%20CI%20with%20Gradle/badge.svg)
+
 #### Описание приложения
 Приложение представляет из себя веб-сервис.
 
@@ -34,7 +38,3 @@
 1. [План автоматизации](./documentation/Plan.md)
 1. [Отчет по тестированию](./documentation/Report.md)
 1. [Отчет по автоматизации](./documentation/Summary.md)
-
-[![Build status](https://ci.appveyor.com/api/projects/status/baio8em638weqs6a/branch/master?svg=true)](https://ci.appveyor.com/project/agasferon/aqa-diploma/branch/master)
-[![Build Status](https://travis-ci.org/agasferon/AQA_Diploma.svg?branch=master)](https://travis-ci.org/agasferon/AQA_Diploma)
-![Java CI with Gradle](https://github.com/agasferon/AQA_Diploma/workflows/Java%20CI%20with%20Gradle/badge.svg)
